@@ -37,6 +37,39 @@ body {
   width: 100px;
 }
 
+.deets {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 100px;
+
+}
+
+.schrodinger {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  width: 200px
+
+}
+
+.back {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  width: 200px;
+
+
+}
+
+.cat {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width:500px
+
+
+}
 .gif-lol {
   position: fixed;
   left: 500px;

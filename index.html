@@ -4,34 +4,173 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quantum Entanglement</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- Assuming you might still use a style.css file for other styles -->
+    <link rel="stylesheet" href="style.css" /> 
+    <style>
+        body {
+            /* Combined background properties from both snippets */
+            background-image: url('https://blob.gifcities.org/gifcities/5WL6Z43RFIVZ2P7J4TRDRIGLKLNQMVBE.gif');
+            background-repeat: repeat;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* Removed height: 100vh here to allow the page to scroll with all content */
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .tc {
+            text-align: center;
+        }
+
+        #visualization-container {
+            position: relative;
+            width: 400px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+            margin-top: 50px; /* Added margin to separate from the text above */
+        }
+
+        .molecule {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #2196F3;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #4DD0E1, 0 0 20px #4DD0E1;
+            transition: transform 0.1s linear;
+            z-index: 2;
+        }
+
+        #molecule-1 {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #molecule-2 {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #bond {
+            position: absolute;
+            height: 20px;
+            background-image: url('https://i.pinimg.com/originals/c8/61/75/c8617584f5180a47f90de9004ed7afed.gif');
+            background-size: 200% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            transform-origin: left center;
+            z-index: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #slider-container {
+            width: 60%;
+            max-width: 500px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #separation-slider {
+            width: 100%;
+        }
+
+        .label {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+
+        /* Added some basic styling for the images/buttons */
+        .gif-lol, .deets {
+            margin-top: 20px;
+        }
+    </style>
   </head>
 
-  <body background="https://blob.gifcities.org/gifcities/JYWHBJYQNUPWPB2W2IK4HMZERX6TKI6O.gif">
-    <h1 class=tc>Quantum Entanglement</h1>
+  <body>
+    <h1 class="tc">Quantum Entanglement</h1>
     
-    <h2 class=tc>How it Works.</h2>
-    <h3 class=tc>Linked States:</h3>
-    <h5 class=tc>Entangled particles behave as a single system. They lose their individual identities and their properties become correlated. </h5>
-    <h3 class = tc>Instantaneous correlation:</h3>
-    <h5 class = tc>This correlation holds true no matter how far apart the particles are. If you measure a property of one particle, the state of the other is instantly determined. </h5>
-    <h3 class = tc>Theories of Entanglement:</h3>
-    <h5 class=tc>According to PubMed, "Quantum entanglement is a phenomenon in which entangled systems exhibit correlations that cannot be explained by classical physics.</h5>
-    <h5 class=tc> It has recently been suggested that a similar process occurs between people and explains anomalous phenomena such as healing."</h5>
-    <h5 class=tc>The Japanese, Chinese, and Koreans had a theory on Quantum Entanglement before its discovery. They believed everyone was entangled by the Yuè Lǎo (The Red String of Fate).</h5>
-    <h5 class=tc>Their ideas on where the entanglement was differed between ankles, fingers, and such. The idea they have was that everyone was entangled with eachother, causing soul mates.</h5>
-    <h5 class=tc>This accurately depicts the theory of Quantum Entanglement, though the truth on the Yuè Lǎo is purely hypothetical, though it may make more sense then it might seem.</h5>
-    <h5 class=tc>Quantum Entanglement can be seen as the idea of luck. Anomalous phenomena of miracles can be explained through connection to a healthy molecule, which is purely random and based off of luck. </h5>
-    <h5 class=tc>Therefore, it can be assumed that Quantum Entanglement may also prove the idea of luck and soulmates as a mathematical possibility rather than a ficticious story book tale.</h5>
+    <h2 class="tc">How it Works.</h2>
+    <h3 class="tc">Linked States:</h3>
+    <h5 class="tc">Entangled particles behave as a single system. They lose their individual identities and their properties become correlated. </h5>
+    <h3 class="tc">Instantaneous correlation:</h3>
+    <h5 class="tc">This correlation holds true no matter how far apart the particles are. If you measure a property of one particle, the state of the other is instantly determined. </h5>
+    <h3 class="tc">Theories of Entanglement:</h3>
+    <h5 class="tc">According to PubMed, "Quantum entanglement is a phenomenon in which entangled systems exhibit correlations that cannot be explained by classical physics.</h5>
+    <h5 class="tc"> It has recently been suggested that a similar process occurs between people and explains anomalous phenomena such as healing."</h5>
+    <h5 class="tc">The Japanese, Chinese, and Koreans had a theory on Quantum Entanglement before its discovery. They believed everyone was entangled by the Yuè Lǎo (The Red String of Fate).</h5>
+    <h5 class="tc">Their ideas on where the entanglement was differed between ankles, fingers, and such. The idea they have was that everyone was entangled with eachother, causing soul mates.</h5>
+    <h5 class="tc">This accurately depicts the theory of Quantum Entanglement, though the truth on the Yuè Lǎo is purely hypothetical, though it may make more sense then it might seem.</h5>
+    <h5 class="tc">Quantum Entanglement can be seen as the idea of luck. Anomalous phenomena of miracles can be explained through connection to a healthy molecule, which is purely random and based off of luck. </h5>
+    <h5 class="tc">Therefore, it can be assumed that Quantum Entanglement may also prove the idea of luck and soulmates as a mathematical possibility rather than a ficticious story book tale.</h5>
     
-    
+  
+    <h1>Quantum Entanglement Visualization</h1>
 
-    <a href="index-2.html" target="_blank">
-        <img
-        src="https://blob.gifcities.org/gifcities/7G7XNXPZSKWKIBQMTFYLZN45AMQQORJ2.gif"
-        class="gif-range"
+    <div id="visualization-container">
+        <div class="molecule" id="molecule-1"></div>
+        <div id="bond"></div>
+        <div class="molecule" id="molecule-2"></div>
+    </div>
 
-        />
+    <div id="slider-container">
+        <input type="range" min="0" max="100" value="0" id="separation-slider">
+        <div class="label">
+            <span>Connected (Entangled)</span>
+            <span>Separated (Entanglement stays)</span>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('separation-slider');
+        const mol1 = document.getElementById('molecule-1');
+        const mol2 = document.getElementById('molecule-2');
+        const bond = document.getElementById('bond');
+        const containerWidth = document.getElementById('visualization-container').offsetWidth;
+
+        slider.oninput = function() {
+            const separationValue = this.value;
+            const maxSeparation = containerWidth / 2 - 20;
+            const distance = (separationValue / 100) * maxSeparation;
+
+            mol1.style.transform = `translateX(${-distance}px)`;
+            mol2.style.transform = `translateX(${distance}px)`;
+
+            const bondLength = distance * 2;
+
+            if (separationValue > 5) {
+                bond.style.opacity = 1;
+                bond.style.width = `${bondLength}px`;
+                bond.style.left = `${(containerWidth / 2) - distance}px`;
+            } else {
+                bond.style.opacity = 0;
+                bond.style.width = `0px`;
+            }
+        }
+
+        window.onload = function() {
+            bond.style.left = `${containerWidth / 2}px`;
+        };
+    </script>
+
+
+
+    <!-- The link from the original snippet 1 -->
+    <a href="index-3.html" target="_blank">
+      <img
+      src="static.vecteezy.com"
+      class="deets"
+      />
     </a>
 
   </body>
